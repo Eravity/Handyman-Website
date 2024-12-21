@@ -1,42 +1,33 @@
-import { Montserrat, PT_Serif } from "next/font/google";
-import { Metadata } from "next";
-import { ReactNode, JSX } from "react";
-import './globals.css';
+import type { Metadata } from "next";
+import { Kumbh_Sans } from "next/font/google";
+import "./globals.css";
 
-type LayoutProps = {
-  children: ReactNode;
-};
-
-export const ptSerif = PT_Serif({
-  weight: ["400", "700"],
+const kumbhSans = Kumbh_Sans({
+  variable: "--font-kumbh-sans",
   subsets: ["latin"],
-  display: "swap",
-});
-
-export const montserrat = Montserrat({
-  subsets: ["latin"],
-  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Personal Blog",
+  title: "Handyman",
   openGraph: {
-    title: "Personal Blog First Page",
-    description: "This website is a personal blog website.",
+    title: "Handyman",
+    description: `Acesta este un site de prezentare pentru serviciile de reparatii casnice, instalatii sanitare si electrice oferite de catre un handyman.`,
   },
 };
 
-const Layout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html>
-      <head></head>
-      <body>
-        <header></header>
-        <main>{children}</main>
-        <footer></footer>
+    <html lang="en">
+      <body
+        className={`container ${kumbhSans.variable}`}
+        style={{ fontFamily: "var(--font-kumbh-sans)" }}
+      >
+        {children}
       </body>
     </html>
   );
-};
-
-export default Layout;
+}
