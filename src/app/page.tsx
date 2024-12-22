@@ -1,6 +1,7 @@
 import { JSX } from "react";
+
 const page: React.FC = (): JSX.Element => {
-  return <div></div>;
+  return <></>;
 };
 
 export default page;
